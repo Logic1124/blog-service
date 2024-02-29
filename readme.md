@@ -24,3 +24,7 @@ third_party：第三方的资源工具，例如 Swagger UI。
 - 更新指定文章	PUT	/articles/:id
 - 获取指定文章	GET	/articles/:id
 - 获取文章列表	GET	/articles
+## 数据库
+- main.go中初始化数据库连接要引入	_ "github.com/jinzhu/gorm/dialects/mysql"
+## 响应处理
+- 编写统一处理接口返回的响应处理方法，它也正正与错误码标准化是相对应的。
