@@ -4,8 +4,11 @@ import (
 	"github.com/Logic1124/blog-service/global"
 	"github.com/Logic1124/blog-service/internal/model"
 	"github.com/Logic1124/blog-service/internal/routers"
+	"github.com/Logic1124/blog-service/pkg/logger"
 	"github.com/Logic1124/blog-service/pkg/setting"
 	"github.com/gin-gonic/gin"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
 	"time"
@@ -20,8 +23,13 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupDBEngine err: %v", err)
 	}
+	err = setupLogger()
+	if err != nil {
+		log.Fatalf("init.setupLogger err: %v", err)
+	}
 }
 func main() {
+	println("main", global.ServerSetting.RunMode)
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 	s := &http.Server{
@@ -31,6 +39,7 @@ func main() {
 		WriteTimeout:   global.ServerSetting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
+	global.Logger.Infof("%s: go-programming-tour-book/%s", "eddycjy", "blog-service")
 	s.ListenAndServe()
 }
 
@@ -62,6 +71,16 @@ func setupDBEngine() error {
 	if err != nil {
 		return err
 	}
+
+	return nil
+}
+func setupLogger() error {
+	global.Logger = logger.NewLogger(&lumberjack.Logger{
+		Filename:  global.AppSetting.LogSavePath + "/" + global.AppSetting.LogFileName + global.AppSetting.LogFileExt,
+		MaxSize:   600,
+		MaxAge:    10,
+		LocalTime: true,
+	}, "", log.LstdFlags).WithCaller(2)
 
 	return nil
 }

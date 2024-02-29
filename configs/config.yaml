@@ -1,18 +1,18 @@
 Server:
-  RunMode: debug
-  HttpPort: 8000
-  ReadTimeout: 60
-  WriteTimeout: 60
+  RunMode: debug # 运行模式
+  HttpPort: 8000 # 服务端口
+  ReadTimeout: 60 # 读取超时
+  WriteTimeout: 60 # 写入超时
 App:
-  DefaultPageSize: 10
-  MaxPageSize: 100
-  LogSavePath: storage/logs
-  LogFileName: app
-  LogFileExt: .log
+  DefaultPageSize: 10 # 默认分页数
+  MaxPageSize: 100 # 最大分页数
+  LogSavePath: storage/logs # 日志保存路径
+  LogFileName: app # 日志文件名
+  LogFileExt: .log # 日志文件后缀
 Database:
   DBType: mysql
   Username: root  # 填写你的数据库账号
-  Password: Tksc@197653  # 填写你的数据库密码
+  Password: 123456  # 填写你的数据库密码
   Host: 127.0.0.1:3306
   DBName: blog_service
   TablePrefix: blog_

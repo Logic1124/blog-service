@@ -1,0 +1,4 @@
+2024/02/29 15:34:38 {"callers":["G:/goworkspace/blog-service/main.go: 26 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1709192078980703200}
+2024/02/29 15:35:43 {"callers":["G:/goworkspace/blog-service/main.go: 26 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1709192143187998500}
+2024/02/29 15:36:26 {"callers":["G:/goworkspace/blog-service/main.go: 26 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1709192186415463700}
+2024/02/29 15:37:37 {"callers":["G:/goworkspace/blog-service/main.go: 26 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1709192257117053500}
