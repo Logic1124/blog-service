@@ -3,12 +3,15 @@ package routers
 import (
 	v1 "github.com/Logic1124/blog-service/internal/routers/api/v1"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	//路由组
 	article := v1.NewArticle()
 	tag := v1.NewTag()
