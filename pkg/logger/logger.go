@@ -40,6 +40,7 @@ func (l Level) String() string {
 		return "fatal"
 	case LevelPanic:
 		return "panic"
+
 	}
 	return ""
 }
@@ -153,7 +154,7 @@ func (l *Logger) Output(level Level, message string) {
 	case LevelWarn:
 		l.newLogger.Print(content)
 	case LevelError:
-		l.newLogger.Print(content)
+		l.newLogger.Panic(content)
 	case LevelFatal:
 		l.newLogger.Fatal(content)
 	case LevelPanic:
@@ -179,4 +180,9 @@ func (l *Logger) Fatal(v ...interface{}) {
 // Fatalf
 func (l *Logger) Fatalf(format string, v ...interface{}) {
 	l.Output(LevelFatal, fmt.Sprintf(format, v...))
+}
+
+// Errorf
+func (l *Logger) Errorf(format string, v ...interface{}) {
+	l.Output(LevelError, fmt.Sprintf(format, v...))
 }
