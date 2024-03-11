@@ -4,7 +4,6 @@
         "title": "博客系统",
         "termsOfService": "https://github.com/go-programming-tour-book",
         "contact": {},
-        "license": {},
         "version": "1.0"
     },
     "paths": {
@@ -85,16 +84,16 @@
                         }
                     },
                     {
-                        "enum": [
-                            0,
-                            1
-                        ],
                         "default": 1,
                         "description": "状态",
                         "name": "state",
                         "in": "body",
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -156,16 +155,16 @@
                         }
                     },
                     {
-                        "enum": [
-                            0,
-                            1
-                        ],
                         "default": 1,
                         "description": "状态",
                         "name": "state",
                         "in": "body",
                         "schema": {
-                            "type": "integer"
+                            "type": "integer",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -243,21 +242,7 @@
     },
     "definitions": {
         "errcode.Error": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer"
-                },
-                "details": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "msg": {
-                    "type": "string"
-                }
-            }
+            "type": "object"
         },
         "model.Tag": {
             "type": "object",
